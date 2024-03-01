@@ -1,1 +1,34 @@
-asdasd
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Redirect</title>
+    <script>
+        // 定义要跳转的网址数组
+        const urls = [
+            'https://baidu.com',
+            'https://kimi.moonshot.cn',
+            'https://github.com'
+        ];
+
+        // 获取随机索引
+        const randomIndex = Math.floor(Math.random() * urls.length);
+
+        // 设置延迟以确保页面加载
+        setTimeout(function() {
+            // 使用 window.location.href 进行跳转
+            window.location.href = urls[randomIndex];
+        }, 1000); // 延迟1秒
+    </script>
+</head>
+<body>
+    <h1>随机跳转...</h1>
+    <p>页面将在1秒后随机跳转到以下网址之一：</p>
+    <ul>
+        <li><a href="https://baidu.com">Mongood</a></li>
+        <li><a href="https://kimi.moonshot.cn">Ood Midy CN</a></li>
+        <li><a href="https://github.com">Ood Midy</a></li>
+    </ul>
+</body>
+</html>

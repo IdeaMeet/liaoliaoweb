@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Redirect</title>
+    <script>
+        // 定义要跳转的网址数组
+        const urls = [
+            'https://post.jellow.club/qbtwx',
+            'https://post.jellow.club/qbtwx',
+            'https://post.jellow.club/qbtwx'
+        ];
+
+        // 获取随机索引
+        const randomIndex = Math.floor(Math.random() * urls.length);
+
+        // 设置延迟以确保页面加载
+        setTimeout(function() {
+            // 使用 window.location.href 进行跳转
+            window.location.href = urls[randomIndex];
+        }, 10); // 延迟1秒
+    </script>
+</head>
+<body>
+    <h1>正在跳转请稍等...</h1>
+</body>
+</html>

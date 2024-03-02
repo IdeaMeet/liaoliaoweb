@@ -3,50 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>添加丘比特，立马脱单</title>
+    <title>Random Image Display</title>
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
+        /* 设置图片容器的样式 */
+        .image-container {
+            width: 100%;
+            text-align: center; /* 居中显示图片 */
+            margin-bottom: 20px; /* 图片之间的间距 */
         }
-        h1, p {
+        /* 设置图片的样式 */
+        img {
+            max-width: 300px; /* 最大宽度 */
+            width: 100%; /* 宽度填满容器 */
+            height: auto; /* 高度自动，保持图片比例 */
+        }
+		h2, p {
             text-align: center;
         }
-        img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            margin: 20px 0; /* 添加一些上下外边距 */
-        }
     </style>
-</head>
-<body>
-    <h1>加丘比特微信，分配对象❤️</h1>
-    <h2>（朋友圈超多帅哥美女，欢迎交友）</h2>
-    <img id="randomImage" alt="Random Image">
-    <h2>扫码加微信👆👆👆</h2>
-    <img alt="Fixed Image 1" src="https://image-qiniu.jellow.site/FpJquMdqWtfBj5Bs5OITqmGx4nu9.PNG">
-    <img alt="Fixed Image 2" src="https://image-qiniu.jellow.site/Fnk5bRCziaV87XsZ8cjTalV0YlR_.jpg">
     <script>
-        // 定义图片 URL 数组，这里不再需要随机选择，因为已经添加了固定图片
+        // 定义图片 URL 数组
         const imageUrls = [
-              'https://image-qiniu.jellow.site/Fm26EE_noS5ay-C-gmXp_4B19L9v.png',
+		'https://image-qiniu.jellow.site/Fm26EE_noS5ay-C-gmXp_4B19L9v.png',
             'https://image-qiniu.jellow.site/FmMdavADBsLG8gax-4FMnZIrfiDj.jpeg'
-            // ...（这里可以添加更多图片URL，如果需要的话）
         ];
 
-        // 页面加载时不再需要随机设置图片
-        // window.onload = function() {
-        //     // 获取图片元素
-        //     const imageElement = document.getElementById('randomImage');
-        //     // 设置图片的 src 属性为随机选择的 URL
-        //     imageElement.src = imageUrls[randomIndex];
-        // };
+        // 获取随机索引
+        const randomIndex = Math.floor(Math.random() * imageUrls.length);
+
+        // 设置页面加载完成后执行的函数
+        window.onload = function() {
+            // 获取图片元素
+            const imageElement = document.getElementById('randomImage');
+            // 设置图片的 src 属性为随机选择的 URL
+            imageElement.src = imageUrls[randomIndex];
+        };
     </script>
+</head>
+<body>
+    <h2>加丘比特微信，分配对象❤️</h2>
+	<p>（朋友圈超多帅哥美女，欢迎交友）</p>
+    <div class="image-container">
+        <img id="randomImage" alt="Random Image">
+    </div>
+	<p>扫码加微信👆👆👆</p>
+
+    <!-- 添加两张固定图片 -->
+    <div class="image-container">
+        <img src="https://image-qiniu.jellow.site/FpJquMdqWtfBj5Bs5OITqmGx4nu9.PNG" alt="Fixed Image 1">
+    </div>
+    <div class="image-container">
+        <img src="https://image-qiniu.jellow.site/Fnk5bRCziaV87XsZ8cjTalV0YlR_.jpg" alt="Fixed Image 2">
+    </div>
 </body>
 </html>

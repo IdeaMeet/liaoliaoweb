@@ -3,26 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Redirect</title>
+    <title>加载成功</title>
     <script>
-        // 定义要跳转的网址数组
-        const urls = [
-            'https://jinshuju.net/f/yJgKrG',
-            'https://jinshuju.net/f/eQvZ6A',
-            'https://jinshuju.net/f/d9yvjC'
-        ];
+        // 定义要跳转的两个URL
+        const workHoursUrl = 'https://post.jellow.club/qbtwx'; // 工作日工作时间段跳转宁波同事
+        const otherUrl = 'https://mark.aiihands.com/img.html';    // 其他时间跳转上海同事
 
-        // 获取随机索引
-        const randomIndex = Math.floor(Math.random() * urls.length);
+        // 获取当前时间
+        function getCurrentTime() {
+            const now = new Date();
+            const hour = now.getHours(); // 获取当前小时数 (0-23)
+            const minute = now.getMinutes(); // 获取当前分钟数 (0-59)
 
-        // 设置延迟以确保页面加载
-        setTimeout(function() {
-            // 使用 window.location.href 进行跳转
-            window.location.href = urls[randomIndex];
-        }, 10); // 延迟1秒
+            // 判断是否是工作日的工作时间段
+            const isWorkTime = (now.getDay() >= 1 && now.getDay() <= 5) && (hour >= 8 && hour < 21) && (minute >= 30);
+            return isWorkTime;
+        }
+
+        // 根据当前时间跳转到对应的URL
+        function redirectToUrl() {
+            const url = getCurrentTime() ? workHoursUrl : otherUrl;
+            window.location.href = url;
+        }
+
+        // 页面加载完成后立即执行跳转
+        document.addEventListener('DOMContentLoaded', redirectToUrl);
     </script>
 </head>
 <body>
-    <h1>正在跳转请稍等...</h1>
+    <a>加载成功...</a>
 </body>
 </html>
